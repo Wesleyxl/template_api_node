@@ -36,7 +36,7 @@ class AuthController extends Controller {
     }
   }
 
-  public async register(req: Request, res: Response) {
+  public async register(req: Request, res: Response): Promise<Response> {
     try {
       const validator = await Controller.validator(req.body);
 
@@ -69,7 +69,7 @@ class AuthController extends Controller {
     }
   }
 
-  public async me(req: Request, res: Response) {
+  public async me(req: Request, res: Response): Promise<Response> {
     try {
       const id = await res.locals.auth_data.id;
 
