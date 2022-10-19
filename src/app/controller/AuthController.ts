@@ -7,10 +7,10 @@ class AuthController extends Controller {
     try {
       const validator = await Controller.validator(req.body);
 
-      if (!validator) {
+      if (!validator.success) {
         return res.status(401).json({
           success: false,
-          message: "Email and password is required",
+          message: validator.message,
         });
       }
 
@@ -40,10 +40,10 @@ class AuthController extends Controller {
     try {
       const validator = await Controller.validator(req.body);
 
-      if (!validator) {
+      if (!validator.success) {
         return res.status(401).json({
           success: false,
-          message: "Name, email and password is required",
+          message: validator.message,
         });
       }
       const { name, email, password } = req.body;
