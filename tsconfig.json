@@ -37,7 +37,8 @@
       "@model/*": ["./src/app/model/*"],
       "@middleware/*": ["./src/app/middleware/*"],
       "@helper/*": ["./src/app/helper/*"],
-      "@service/*": ["./src/app/service/*"]
+      "@service/*": ["./src/app/service/*"],
+      "@config/*": ["./src/config/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     "typeRoots": [
