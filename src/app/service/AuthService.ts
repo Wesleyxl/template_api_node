@@ -5,7 +5,7 @@ import authConfig from "@config/auth";
 
 class AuthService {
   private static createUserToken(userId: number) {
-    return jwt.sign({ id: userId }, authConfig.secret, {
+    return jwt.sign({ id: userId }, authConfig.jwt_secret, {
       expiresIn: authConfig.expire_in,
     });
   }
@@ -38,7 +38,7 @@ class AuthService {
         }
 
         return {
-          cess: false,
+          success: false,
           message: "Email or password is incorrect",
         };
       }
