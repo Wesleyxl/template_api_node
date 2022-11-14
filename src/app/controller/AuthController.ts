@@ -5,7 +5,7 @@ import AuthService from "@service/AuthService";
 class AuthController extends Controller {
   public async login(req: Request, res: Response): Promise<Response> {
     try {
-      const validator = await Controller.validator(req.body);
+      const validator = Controller.validator(req.body);
 
       if (!validator.success) {
         return res.status(401).json({
@@ -38,7 +38,7 @@ class AuthController extends Controller {
 
   public async register(req: Request, res: Response): Promise<Response> {
     try {
-      const validator = await Controller.validator(req.body);
+      const validator = Controller.validator(req.body);
 
       if (!validator.success) {
         return res.status(401).json({
