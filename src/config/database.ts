@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   username: process.env.DB_USERNAME || "wesley",
   password: process.env.DB_PASSWORD || "q1r4w2e3*",
   database: process.env.DB_DATABASE || "typescript_api",
