@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
+
 export default {
-  username: process.env.DB_USERNAME || "wesley",
-  password: process.env.DB_PASSWORD || "q1r4w2e3*",
-  database: process.env.DB_DATABASE || "typescript_api",
-  host: process.env.DB_HOST || "127.0.0.1",
-  dialect: process.env.DB_DRIVE || "mysql",
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_DRIVE,
   define: {
     timestamps: true,
     underscored: true,

@@ -4,12 +4,23 @@ import User from "@model/User";
 import authConfig from "@config/auth";
 
 class AuthService {
+  /**
+   *  Create a new token based on user id
+   * @param userId
+   * @returns string (hash of token)
+   */
   private static createUserToken(userId: number) {
     return jwt.sign({ id: userId }, authConfig.jwt_secret, {
       expiresIn: authConfig.expire_in,
     });
   }
 
+  /**
+   * sign user
+   * @param email
+   * @param password
+   * @returns object (user data and access_token)
+   */
   public async login(email: string, password: string) {
     try {
       // get user by email
@@ -54,6 +65,13 @@ class AuthService {
     }
   }
 
+  /**
+   *  create new user
+   * @param name
+   * @param email
+   * @param password
+   * @returns object (user data and access_token)
+   */
   public async register(name: string, email: string, password: string) {
     try {
       const passwordHash = await bcrypt.hash(password, 8);
@@ -95,6 +113,11 @@ class AuthService {
     }
   }
 
+  /**
+   * return user authenticate data
+   * @param id
+   * @returns user data
+   */
   public async me(id: number) {
     try {
       const user = await User.findByPk(id, {
